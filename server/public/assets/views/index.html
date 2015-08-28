@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="homeApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Golf App</title>
+    <script type="text/javascript" src="/vendors/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/vendors/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="/vendors/angular-material/angular-material.min.js"></script>
+    <script type="text/javascript" src="/vendors/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="/vendors/angular-aria/angular-aria.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/app.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/controllers/controller.min.js"></script>
+    <link rel="stylesheet" href="/vendors/angular-material/angular-material.min.css"/>
+    <link rel="stylesheet" href="/assets/styles/style.css"/>
+</head>
+<body>
+    <div>
+        <md-content layout-align="center center">
+            <md-button class="md-raised md-primary" href="#track">Track A Round</md-button>
+            <md-button class="md-raised md-warn" href="#stats">Review Your Stats</md-button>
+        </md-content>
+    </div>
+    <div>
+        <main ng-view></main>
+    </div>
+</body>
+</html>
