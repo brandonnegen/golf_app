@@ -76,11 +76,44 @@ module.exports = function(grunt){
                 ],
                 "dest": "server/public/assets/"
             },
-            pics: {
+            chart: {
+              expand: true,
+                cwd: 'node_modules',
+                src: [
+                    'Chart.js-master/Chart.min.js'
+                ],
+                dest: "server/public/vendors"
+            },
+            angularChart: {
                 expand: true,
-                cwd: 'client',
-                src: 'pics/*.*',
-                dest: 'server/public/assets/'
+                cwd: 'node_modules',
+                src: [
+                  'angular-chart.js-master/dist/angular-chart.min.js',
+                    'angular-chart.js-master/dist/angular-chart.css',
+                    'angular-chart.js-master/dist/angular-chart.css.map',
+                    'angular-chart.js-master/dist/angular-chart.min.js.map',
+                    'angular-chart.js-master/dist/angular-chart.js.tar.gz'
+                ],
+                dest: "server/public/vendors"
+            },
+            chartJS: {
+                expand: true,
+                cwd: 'node_modules',
+                src: [
+                  'Chart.js-master/Chart.min.js'
+                ],
+                dest: 'server/public/vendors'
+            },
+            angularCharts: {
+                expand: true,
+                cwd: 'node_modules',
+                src: [
+                  'angular-chart.js-master/angular-chart.min.js',
+                    'angular-chart.js-master/angular-chart.min.js.map',
+                    'angular-chart.js-master/angular-chart.css',
+                    'angular-chart.js-master/angular-chart.css.map'
+                ],
+                dest: 'server/public/vendors'
             }
         }
     });

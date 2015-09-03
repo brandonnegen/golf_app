@@ -1,15 +1,145 @@
-<h1>Here is where the stats would display.</h1>
 
-<div ng-controller="StatController">
-    <h1>Average Score: {{total}}</h1>
-    <h1>Double Eagles: {{doubleEagles}}</h1>
-    <h1>Eagles: {{eagles}}</h1>
-    <h1>Birdies: {{birdies}}</h1>
-    <h1>Pars: {{pars}}</h1>
-    <h1>Bogeys: {{bogeys}}</h1>
-    <h1>Double Bogeys: {{doubleBogeys}}</h1>
-    <h1>Tee Shots Left: {{percentageLeft}}%</h1>
-    <h1>Tee Shots Center: {{percentageCenter}}%</h1>
-    <h1>Tee Shots Right: {{percentageRight}}%</h1>
-    <h1>Putt Average: {{puttAverage}}</h1>
+<div layout="column">
+    <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">
+            <span>Statistics</span>
+        </h1>
+    </md-toolbar>
+    <md-content>
+        <div ng-controller="StatController" layout="row" layout-wrap>
+            <div id="averageScore" flex="33">
+                <h2 style="font-size: 50px;">Average Score</h2>
+                <h2 style="font-size: 50px;">{{total}}</h2>
+            </div>
+            <div id="averagePutts" flex="33">
+                <h2 style="font-size: 50px;">Putts Per Hole</h2>
+                <h2 style="font-size: 50px;">{{puttAverage}}</h2>
+            </div>
+            <div id="greens" flex="33">
+                <h2 style="font-size: 50px;">Greens in Regulation</h2>
+                <h2 style="font-size: 50px;">{{GiRPercentage}}%</h2>
+            </div>
+        </div>
+    </md-content>
+    <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">
+            <span>Charts</span>
+        </h1>
+    </md-toolbar>
+    <md-content>
+        <div ng-controller="StatController">
+            <div id="donutCharts" style="height: 1000px; width: 1000px;">
+                <div id="accuracy" ng-show="showChart" layout="row">
+                    <canvas id="accuracyDonut" class="chart chart-doughnut" chart-data="accuracyDataset" chart-labels="accuracyLabels" flex="66"></canvas>
+                    <ul class="accuracyLegend" flex="33">
+                        <li>
+                            <span style="background-color: #97BBCD;"></span>
+                            Left
+                        </li>
+                        <li>
+                            <span style="background-color: #DCDCDC;"></span>
+                            Center
+                        </li>
+                        <li>
+                            <span style="background-color: #F7464A;"></span>
+                            Right
+                        </li>
+                    </ul>
+                </div>
+                <div id="score" ng-hide="showChart" layout="row">
+                    <canvas id="scoreDonut" class="chart chart-doughnut" chart-data="scoreDataset" chart-labels="scoreLabels" flex="66"></canvas>
+                    <ul class="scoreLegend" flex="33">
+                        <li>
+                            <span style="background-color: #97BBCD;"></span>
+                            Double Eagle
+                        </li>
+                        <li>
+                            <span style="background-color: #DCDCDC;"></span>
+                            Eagle
+                        </li>
+                        <li>
+                            <span style="background-color: #F7464A;"></span>
+                            Birdie
+                        </li>
+                        <li>
+                            <span style="background-color: #46BFBD;"></span>
+                            Par
+                        </li>
+                        <li>
+                            <span style="background-color: #FDB45C;"></span>
+                            Bogey
+                        </li>
+                        <li>
+                            <span style="background-color: #949FB1;"></span>
+                            Double Bogey
+                        </li>
+                    </ul>
+                </div>
+                <md-button class="md-raised md-primary" ng-click="toggle()">Toggle</md-button>
+            </div>
+        </div>
+    </md-content>
+
 </div>
+
+<!--<div ng-controller="StatController" layout="row" layout-wrap>-->
+    <!--<div id="averageScore" flex="33">-->
+        <!--<h1 style="font-size: 50px;">Average Score: {{total}}</h1>-->
+    <!--</div>-->
+    <!--<div id="averagePutts" flex="33">-->
+        <!--<h1 style="font-size: 50px;">Average Putts: {{puttAverage}}</h1>-->
+    <!--</div>-->
+    <!--<div id="greens" flex="33">-->
+        <!--<h1 style="font-size: 50px;">Greens in Regulation: {{GiRPercentage}}%</h1>-->
+    <!--</div>-->
+    <!--<div id="donutCharts" style="height: 1000px; width: 1000px;" flex="50">-->
+        <!--<div id="accuracy" ng-show="showChart">-->
+            <!--<canvas id="accuracyDonut" class="chart chart-doughnut" chart-data="accuracyDataset" chart-labels="accuracyLabels" ></canvas>-->
+            <!--<ul class="accuracyLegend">-->
+                <!--<li>-->
+                    <!--<span style="background-color: #97BBCD;"></span>-->
+                    <!--Left-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span style="background-color: #DCDCDC;"></span>-->
+                    <!--Center-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span style="background-color: #F7464A;"></span>-->
+                    <!--Right-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<div id="score" ng-hide="showChart">-->
+            <!--<canvas id="scoreDonut" class="chart chart-doughnut" chart-data="scoreDataset" chart-labels="scoreLabels" ></canvas>-->
+            <!--<ul class="scoreLegend">-->
+                <!--<li>-->
+                    <!--<span style="background-color: #97BBCD;"></span>-->
+                    <!--Double Eagle-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span style="background-color: #DCDCDC;"></span>-->
+                    <!--Eagle-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span style="background-color: #F7464A;"></span>-->
+                    <!--Birdie-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span style="background-color: #46BFBD;"></span>-->
+                    <!--Par-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span style="background-color: #FDB45C;"></span>-->
+                    <!--Bogey-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span style="background-color: #949FB1;"></span>-->
+                    <!--Double Bogey-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<md-button class="md-raised md-primary" ng-click="toggle()" flex="50">Toggle</md-button>-->
+    <!--</div>-->
+<!--</div>-->
+

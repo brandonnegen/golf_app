@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="homeApp">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"name="viewport" content="width=device-width">
     <title>Golf App</title>
     <script type="text/javascript" src="/vendors/angular/angular.min.js"></script>
     <script type="text/javascript" src="/vendors/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="/vendors/angular-material/angular-material.min.js"></script>
     <script type="text/javascript" src="/vendors/angular-animate/angular-animate.min.js"></script>
     <script type="text/javascript" src="/vendors/angular-aria/angular-aria.min.js"></script>
+    <script type="text/javascript" src="/vendors/Chart.js-master/Chart.min.js"></script>
+    <script type="text/javascript" src="/vendors/angular-chart.js-master/dist/angular-chart.min.js"></script>
     <script type="text/javascript" src="/assets/scripts/app.min.js"></script>
     <script type="text/javascript" src="/assets/scripts/controllers/controller.min.js"></script>
     <link rel="stylesheet" href="/vendors/angular-material/angular-material.min.css"/>
+    <link rel="stylesheet" href="/vendors/angular-chart.js-master/dist/angular-chart.css"/>
     <link rel="stylesheet" href="/assets/styles/style.css"/>
 </head>
 <body>
     <div>
-        <md-content layout-align="center center">
+        <md-content id="mainButtons" layout-align="center center">
             <md-button class="md-raised md-primary" href="#track">Track A Round</md-button>
             <md-button class="md-raised md-warn" href="#stats">Review Your Stats</md-button>
         </md-content>

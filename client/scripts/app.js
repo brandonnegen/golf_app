@@ -1,4 +1,4 @@
-var homeApp = angular.module('homeApp',['ngRoute', 'appControllers', 'ngMaterial', 'ngAnimate', 'ngAria']);
+var homeApp = angular.module('homeApp',['ngRoute', 'chart.js', 'appControllers', 'ngMaterial', 'ngAnimate', 'ngAria']);
 
 var appControllers = angular.module('appControllers', []);
 

@@ -4,6 +4,7 @@ var index = require('./routes/index');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var mongoURI = 'mongodb://localhost:27017/round_statistics';
+//var mongoURI = 'mongodb://golfapp:golfapp@ds035663.mongolab.com:35663/golf_app';
 var mongoDB = mongoose.connect(mongoURI).connection;
 var Round = require('./models/round');
 var track = require('./routes/track');
